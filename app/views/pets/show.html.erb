@@ -1,10 +1,17 @@
 <h1>Pet Info</h1>
  <h2><%= @pet.breed %></h2>
-  <p>name: <%= pet.name%> </p>
+  <p>name: <%= @pet.name%> </p>
   <p>age: <%= @pet.age%> </p>
   <p>color: <%= @pet.color%> </p>
   <p>image: <%= @pet.image%> </p>
-<a href="/pets">Back to all pets</a>
 
+<div>
+<a href="/pets">Back to all pets</a>
+</div>
+
+
+<div>
 <%= link_to "Destroy pet", pet_path(@pet), data: {turbo_method: :delete} %>
+</div>
+
 

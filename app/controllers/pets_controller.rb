@@ -16,12 +16,29 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.create(
-      age: params[:pet][:age],
       breed: params[:pet][:breed],
+      name: params[:pet][:name],
+      age: params[:pet][:age],
       color: params[:pet][:color],
       image: params[:pet][:image],
     )
     redirect_to "/pets"
+  end
+
+  def edit 
+    @pet = Pet.find_by(id: params[:id])
+    render :edit 
+  end
+
+  def update
+    pet = Pet.find_by(id: params[:id])
+    pet.breed = params[:pet][:breed]
+    pet.name = params[:pet][:name]
+    pet.age = params[:pet][:age]
+    pet.color = params[:pet][:color]
+    pet.image = params[:pet][:image]
+    pet.save
+    redirect_to "pets/#{pet.id}"
   end
 
   def destroy
