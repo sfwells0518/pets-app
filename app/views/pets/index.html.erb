@@ -1,0 +1,12 @@
+<h1>All Pets</h1>
+
+<% @pets.each do |pet| %>
+  <h2><%= pet.breed %></h2>
+  <p>age: <%= pet.age%> </p>
+  <p>color: <%= pet.color%> </p>
+  <p>image: <%= pet.image%> </p>
+ 
+<% end %>
+
+<%= link_to "New Pet", new_pet_path %>
+
